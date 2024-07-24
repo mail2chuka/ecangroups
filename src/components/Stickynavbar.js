@@ -118,58 +118,7 @@ const StickyNavbar = ({toggle}) => {
           </>
           
           
-            {status === 'loading' ? (
-                <div
-                className="flex  w-[fit-content] p-1 h-9 cursor-pointer items-center font-semibold 
-            justify-center uppercase text-white border-2 border-green-600  bg-green-600 transition duration-100  rounded-lg text-[10px]
-            ease-in-out hover:bg-white hover:text-yellow-600 hover:border-2 hover:border-yellow-600 hover:scale-105 hover:rounded-sm "
-              >
-               Loading...
-              </div>
-              ) : session?.user ? (
-                <div
-            className="flex  w-[fit-content] p-1 h-9 cursor-pointer items-center font-semibold 
-        justify-center uppercase text-white border-2 border-green-600  bg-green-600 transition duration-100  rounded-lg text-[10px]
-        ease-in-out hover:bg-white hover:text-yellow-600 hover:border-2 hover:border-yellow-600 hover:scale-105 hover:rounded-sm "
-          >
-           <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
-                 
-            <CiUser/>{session.user.name}
-                  </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-80 origin-top-right bg-white shadow-lg">
-                    <Menu.Item>
-                      <DropdownLink className="dropdown-link" href="/profile">
-                        Profile
-                      </DropdownLink>
-                    </Menu.Item>
-                  <Menu.Item>
-                      <DropdownLink
-                        onClick={logoutClickHandler}
-                        className="dropdown-link"
-                        href="#"
-                      >
-                        Logout
-                      </DropdownLink>
-                    </Menu.Item>
-                  </Menu.Items>
-                </Menu>
-          </div>
-                
-              ) : (
-
-                <div
-            className="flex  w-[fit-content] p-1 h-9 cursor-pointer items-center font-semibold 
-        justify-center uppercase text-white border-2 border-green-600  bg-green-600 transition duration-100  rounded-lg text-[10px]
-        ease-in-out hover:bg-white hover:text-yellow-600 hover:border-2 hover:border-yellow-600 hover:scale-105 hover:rounded-sm "
-          >
-           <Link href="/login" className="p-2 cursor-pointer" legacyBehavior>
-                
-                <a>  Login</a>
-                </Link>
-          </div>
-                
-              )}
+          
           </div>
         
       </nav>
