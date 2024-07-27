@@ -8,7 +8,6 @@ export const InfoData = {
     Real Estate Excellence Nestled in the heart of Nigeria’s capital, our real estate portfolio is as diverse as the city itself. From luxurious apartments in serene neighborhoods to commercial spaces bustling with potential, we offer properties that promise comfort, security, and prosperity.`,
   paragraphTwo:
 `Cementing Your Success Our partnership with leading cement manufacturers ensures that you receive only the highest quality materials for your construction needs. Whether you’re building a home or a commercial empire, our cement products set the standard for durability and strength.
-
 Tailored Services, Unmatched Expertise With years of experience and a deep understanding of the local market, our team provides personalized services that are tailored to your unique needs. We guide you through every step of the process, ensuring a seamless and satisfying experience.`,
   buttonLabel: "Contact Us",
   image: ImageOne,

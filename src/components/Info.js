@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Info = ({
   heading,
@@ -11,7 +11,10 @@ const Info = ({
   reversed,
   position = position - 1,
 }) => {
-  const place = (position - 1) * 100;
+const [more, setMore]=useState(false)
+  const change=()=>{
+    setMore(!more)
+  }
   return (
     <section
       className={`relative overflow-hidden overflow-x-hidden items-center justify-center ease-in duration-700 flex mt-2 mb-3  h-full w-[100%] px-6 py-6`}
@@ -22,9 +25,11 @@ const Info = ({
             reversed ? "order-2 lg:order-first" : "order-2 lg:order-2"} text-lg`}
         >
           <h1 className="text-2xl font-bold uppercase">{heading}</h1>
-          <p>{paragraph}</p>
-          <p>{paragraphTwo}</p>
-          <Link className="primary-button" href="#">
+          <p>{paragraph}
+          <span className={`${more?"hidden":"inline-flex"}`}>...</span></p>
+          <p className={`mb-0 ${more?"inline-block":"hidden"}`}>{paragraphTwo}</p>
+          <div className=" cursor-pointer px-2 border-white border-2 mt-0" onClick={change}>{more?"Read Less":"Read More"}</div>
+          <Link className="border-[#F13B66] border-2 px-4 mt-5 bg-gray-800" href="#">
             {buttonLabel}
           </Link>
         </div>

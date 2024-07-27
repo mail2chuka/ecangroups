@@ -23,6 +23,6 @@ export default function Layout({ title, children }) {
    <Menucomp toggle={toggle} isOpen={isOpen}/>
         <main className="w-screen ml-0 mt-4 m-auto px-0 overflow-hidden">{children}</main>
         <Footer/>
-      </div>
-    </>)
+      </div></>
+)
 }
