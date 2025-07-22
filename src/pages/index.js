@@ -489,7 +489,7 @@ const ContactSection = () => {
                 <div className="bg-blue-950 text-white p-3 rounded-lg">📞</div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p className="text-gray-600">+234 9 1234 5678</p>
+                  <p className="text-gray-600">+2348092612656</p>
                 </div>
               </div>
 
