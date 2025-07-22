@@ -343,8 +343,8 @@ const VideoSection = () => {
             Watch Our Story
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover how we are investing in Africa's future and transforming
-            lives across the continent.
+            Discover how we are investing in Africa&#39;s future and
+            transforming lives across the continent.
           </p>
         </div>
 
