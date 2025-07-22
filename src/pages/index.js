@@ -253,7 +253,7 @@ const AboutSection = () => {
           <div className="relative">
             <img
               src="/images/image.jpg"
-              alt="About Heirs Holdings"
+              alt="About Ecana Group"
               className="rounded-lg shadow-xl w-full"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
@@ -701,11 +701,11 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Heirs Holdings - Leading Family-owned African Investment Company
+          Ecana Group - Leading Family-owned African Investment Company
         </title>
         <meta
           name="description"
-          content="Heirs Holdings is committed to improving lives and transforming Africa through strategic investments in critical sectors."
+          content="Ecana Group is committed to improving lives and transforming Africa through strategic investments in critical sectors."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
