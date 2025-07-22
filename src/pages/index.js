@@ -411,8 +411,8 @@ const NewsSection = () => {
             Latest News
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay updated with our latest announcements, investments, ok and
-            impact stories from across Africa.
+            Stay updated with our latest announcements, investments, and impact
+            stories from across Africa.
           </p>
         </div>
 
