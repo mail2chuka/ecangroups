@@ -138,10 +138,10 @@ const VideoHeroBackground = () => {
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="text-center text-white max-w-5xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Ecana Group – Building Nigeria’s Future,
+            Ecana Group – Building Nigeria&lsquo;s Future,
             <span className="block text-red-800 bg-gray-300 bg-opacity-15">
               {' '}
-              Empowering Africa’s Tomorrow
+              Empowering Africa&lsquo;s Tomorrow
             </span>
           </h1>
           <p className="text-xl lg:text-2xl mb-8 font-light max-w-4xl mx-auto leading-relaxed">
