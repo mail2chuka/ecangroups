@@ -478,7 +478,7 @@ const ContactSection = () => {
                     Headquarters
                   </h3>
                   <p className="text-gray-600">
-                    Plot 12, Central Business District,
+                    Plot 1567 chibuzor G chinyere Crescent Guzape
                     <br />
                     Abuja, Nigeria
                   </p>
