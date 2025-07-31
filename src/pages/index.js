@@ -540,7 +540,7 @@ const NewsSection = () => {
               <img
                 src={article.image}
                 alt={article.title}
-                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="px-10 h-48 object-contain group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-6">
                 <time className="text-lg text-red-600 font-medium">
