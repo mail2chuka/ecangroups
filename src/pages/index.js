@@ -18,6 +18,7 @@ const Header = () => {
   const navigationItems = [
     { name: 'About Us', href: '#about' },
     { name: 'Our Companies', href: '#companies' },
+    { name: 'Our CEO', href: '#ceo' },
     { name: 'News & Media', href: '#news' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -151,9 +152,9 @@ const VideoHeroBackground = () => {
 
           {/* Call to action buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            {/* <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
               Discover Our Impact
-            </button>
+            </button> */}
             <button
               className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
               onClick={() =>
@@ -167,26 +168,6 @@ const VideoHeroBackground = () => {
           </div>
         </div>
       </div>
-
-      {/* TV Commercial Play Button Overlay */}
-      {/*     {showPlayButton && (
-        <div className="absolute bottom-8 left-8 z-30">
-          <div className="bg-black bg-opacity-70 rounded-lg p-4 max-w-sm">
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => setShowPlayButton(false)}
-                className="bg-red-600 hover:bg-red-700 text-white w-12 h-12 rounded-full flex items-center justify-center text-lg transition-all duration-300 transform hover:scale-110 shadow-lg"
-              >
-                ▶
-              </button>
-              <div className="text-white">
-                <p className="text-sm font-medium">WATCH OUR</p>
-                <p className="text-sm font-bold">TELEVISION COMMERCIAL</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 text-white animate-bounce">
@@ -278,7 +259,7 @@ const PortfolioSection = () => {
       name: 'Ecana Energy',
       sector: 'Oil & Gas',
       description:
-        'Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa’s growth.',
+        'Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa&#39;s growth.',
       logo: '/images/ecana-logo.png',
     },
     {
@@ -298,8 +279,8 @@ const PortfolioSection = () => {
             Our Business Pillars
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Three core divisions driving Ecana Group’s mission to build, power,
-            and sustain communities.
+            Three core divisions driving Ecana Group&#39;s mission to build,
+            power, and sustain communities.
           </p>
         </div>
 
@@ -325,6 +306,138 @@ const PortfolioSection = () => {
               </p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// CEO Section Component
+const CEOSection = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <section id="ceo" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-4xl text-center lg:text-5xl font-bold text-gray-900 mb-6">
+              Our CEO
+            </h2>
+            <div className="relative">
+              <img
+                src="/images/ecana-logo.png"
+                alt="Christian Anayo Ezeh - CEO"
+                className="rounded-lg shadow-xl w-full"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
+            </div>
+            <div className="text-left mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Christian Anayo Ezeh
+              </h3>
+              <p className="text-lg text-red-600 font-semibold">
+                Founder & CEO, Ecana Group
+              </p>
+            </div>
+
+            <div className="text-lg text-gray-700 leading-relaxed">
+              <p className="mb-6">
+                Christian Anayo Ezeh is a strategic and results-oriented
+                entrepreneur with a robust background in the trading and
+                distribution of building materials. As the founder of Ecana
+                Group, he has successfully built a multi-faceted enterprise from
+                the ground up, driven by a commitment to quality, integrity, and
+                sustainable growth. His unique journey, from graduating in
+                Applied Biochemistry (Nnamdi Azikiwe University) to a prominent
+                figure in the construction sector, highlights a career defined
+                by analytical thinking, resilience, and a passion for value
+                creation.
+              </p>
+
+              <h4 className="text-xl font-bold text-gray-900 mb-4">
+                The Ecana Group
+              </h4>
+
+              <p className="mb-6">
+                Originally established as Ecana Family, Christian&#39;s initial
+                venture focused on creating reliable supply chains in the cement
+                industry. This foundation has since evolved into the Ecana
+                Group, a dynamic holding company with three specialized
+                subsidiaries:
+              </p>
+
+              {!isExpanded && (
+                <button
+                  onClick={() => setIsExpanded(true)}
+                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 mb-6"
+                >
+                  Read More
+                </button>
+              )}
+
+              <div
+                className={`transition-all duration-500 ease-in-out overflow-hidden ${
+                  isExpanded ? 'max-h-full opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="space-y-4 mb-6">
+                  <p>
+                    <strong>Ecana Family:</strong> The cornerstone of the group,
+                    specializing in the wholesale and retail of BUA, Dangote,
+                    and Mangal cement. This subsidiary is also committed to
+                    social impact, actively empowering young entrepreneurs to
+                    establish their own cement retail businesses through
+                    mentorship and support.
+                  </p>
+
+                  <p>
+                    <strong>Ecana Energy:</strong> Diversifying the group&#39;s
+                    portfolio, this subsidiary operates in the energy sector
+                    with a focus on petroleum services and distribution.
+                  </p>
+
+                  <p>
+                    <strong>Ecana Heritage:</strong> A key player in the real
+                    estate market, this subsidiary manages construction projects
+                    and property development, leveraging the group&#39;s
+                    integrated supply chain for a competitive advantage.
+                  </p>
+                </div>
+
+                <h4 className="text-xl font-bold text-gray-900 mb-4">
+                  Leadership & Vision
+                </h4>
+
+                <p className="mb-6">
+                  Christian&#39;s leadership is characterized by a deep
+                  understanding of market dynamics and a hands-on approach to
+                  business. He has a proven track record in procurement, sales
+                  strategy, and customer relationship management. His passion
+                  extends beyond commercial success to include mentorship; he
+                  has successfully guided over 10 former employees in launching
+                  their own businesses, providing them with critical support and
+                  access to dependable supply networks.
+                </p>
+
+                <p className="mb-6">
+                  He is currently focused on expanding the reach and impact of
+                  Ecana Group and is actively seeking strategic partnerships,
+                  dealership opportunities, and distributorships within the
+                  building and construction materials industry. Christian is
+                  poised to collaborate with partners who share his vision for
+                  growth, excellence, and community empowerment.
+                </p>
+
+                <button
+                  onClick={() => setIsExpanded(false)}
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                >
+                  Read Less
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -467,7 +580,7 @@ const ContactSection = () => {
             </h2>
             <p className="text-lg text-gray-700 mb-8">
               We welcome inquiries from partners, clients, and talent worldwide.
-              Let’s build tomorrow together.
+              Let&#39;s build tomorrow together.
             </p>
 
             <div className="space-y-6">
@@ -616,32 +729,6 @@ const Footer = () => {
               communities through cement distribution, real estate development,
               and oil & gas partnerships.
             </p>
-            {/* <div className="flex space-x-4 mt-6">
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                <span className="sr-only">Facebook</span>📘
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                <span className="sr-only">Twitter</span>🐦
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                <span className="sr-only">LinkedIn</span>💼
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-              >
-                <span className="sr-only">Instagram</span>📸
-              </a>
-            </div> */}
           </div>
 
           {/* Footer links */}
@@ -716,6 +803,7 @@ export default function Home() {
         <VideoHeroBackground />
         <AboutSection />
         <PortfolioSection />
+        <CEOSection />
         <NewsSection />
         <ContactSection />
         <Footer />
