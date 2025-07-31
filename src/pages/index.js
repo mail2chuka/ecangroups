@@ -36,7 +36,7 @@ const Header = () => {
             <img
               src="/images/ecana-logo.png"
               alt="Ecana Group Logo"
-              className="h-20 w-auto"
+              className="h-16 w-auto"
             />
           </div>
 
