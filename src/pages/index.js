@@ -36,7 +36,7 @@ const Header = () => {
             <img
               src="/images/ecana-logo.png"
               alt="Ecana Group Logo"
-              className="h-12 w-auto"
+              className="h-20 w-auto"
             />
           </div>
 
@@ -212,14 +212,14 @@ const AboutSection = () => {
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               About Ecana Group
             </h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-xl text-gray-700 mb-6 leading-relaxed">
               Ecana Group is a leading diversified conglomerate based in Abuja,
               Nigeria, with a strong presence in the construction, real estate,
               and energy sectors. Since our founding over a decade ago, we have
               been dedicated to driving progress and empowering communities
               through innovative solutions and sustainable practices.
             </p>
-            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               {' '}
               Since our inception in Abuja over a decade ago, Ecana Group has
               been at the forefront of Nigeria&#39;s development. What began as
@@ -295,13 +295,13 @@ const PortfolioSection = () => {
                 alt={company.name}
                 className="h-16 mb-4 object-contain"
               />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
                 {company.name}
               </h3>
-              <span className="inline-block bg-red-100 text-red-600 text-sm px-3 py-1 rounded-full mb-3">
+              <span className="inline-block bg-red-100 text-red-600 text-xl py-1 rounded-full mb-3">
                 {company.sector}
               </span>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 text-xl leading-relaxed">
                 {company.description}
               </p>
             </div>
@@ -338,12 +338,12 @@ const CEOSection = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Christian Anayo Ezeh
               </h3>
-              <p className="text-lg text-red-600 font-semibold">
+              <p className="text-xl text-red-600 font-semibold">
                 Founder & CEO, Ecana Group
               </p>
             </div>
 
-            <div className="text-lg text-gray-700 leading-relaxed">
+            <div className="text-xl text-gray-700 leading-relaxed">
               <p className="mb-6">
                 Christian Anayo Ezeh is a strategic and results-oriented
                 entrepreneur with a robust background in the trading and
@@ -481,7 +481,7 @@ const VideoSection = () => {
               </div>
             )}
             <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="text-lg font-semibold mb-1">
+              <h3 className="text-xl font-semibold mb-1">
                 WATCH OUR TELEVISION COMMERCIAL
               </h3>
             </div>
@@ -525,7 +525,7 @@ const NewsSection = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Latest News
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-2xl text-gray-600 max-w-3xl mx-auto">
             Stay updated with our latest announcements, investments, and impact
             stories from across Africa.
           </p>
@@ -543,13 +543,13 @@ const NewsSection = () => {
                 className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-6">
-                <time className="text-sm text-red-600 font-medium">
+                <time className="text-lg text-red-600 font-medium">
                   {article.date}
                 </time>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 mt-2 group-hover:text-red-600 transition-colors duration-300">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-gray-600 text-xl leading-relaxed mb-4">
                   {article.excerpt}
                 </p>
                 <button className="text-red-600 font-semibold hover:text-red-700 transition-colors duration-300">
@@ -790,7 +790,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Ecana Group - Leading Family-owned African Investment Company
+          Ecana Group|Leading Family owned African Investment Company
         </title>
         <meta
           name="description"
