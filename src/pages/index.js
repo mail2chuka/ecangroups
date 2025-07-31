@@ -318,20 +318,22 @@ const CEOSection = () => {
 
   return (
     <section id="ceo" className="py-20 bg-gray-50">
+      <h2 className="text-4xl text-center lg:text-5xl font-bold text-gray-900 mb-6">
+        Our CEO
+      </h2>{' '}
       <div className="container mx-auto px-4 lg:px-8">
+        {' '}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="relative">
+            <img
+              src="/images/ecana-logo.png"
+              alt="Christian Anayo Ezeh - CEO"
+              className="rounded-lg shadow-xl w-full"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
+          </div>
+
           <div>
-            <h2 className="text-4xl text-center lg:text-5xl font-bold text-gray-900 mb-6">
-              Our CEO
-            </h2>
-            <div className="relative">
-              <img
-                src="/images/ecana-logo.png"
-                alt="Christian Anayo Ezeh - CEO"
-                className="rounded-lg shadow-xl w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
-            </div>
             <div className="text-left mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Christian Anayo Ezeh
