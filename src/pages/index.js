@@ -259,7 +259,7 @@ const PortfolioSection = () => {
       name: 'Ecana Energy',
       sector: 'Oil & Gas',
       description:
-        'Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa&#39;s growth.',
+        "Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa's growth.",
       logo: '/images/ecana-logo.png',
     },
     {
