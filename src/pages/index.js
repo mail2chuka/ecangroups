@@ -252,7 +252,7 @@ const PortfolioSection = () => {
       name: 'Ecana Family',
       sector: 'Cement Distribution',
       description:
-        'Partnering with Dangote, BUA, and Lafarge to supply high-quality cement across West Africa.',
+        'Partnering with Dangote, BUA, and Mangal to supply high-quality cement across West Africa.',
       logo: '/images/ecana-logo.png',
     },
     {
@@ -298,7 +298,7 @@ const PortfolioSection = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
                 {company.name}
               </h3>
-              <span className="inline-block bg-red-100 text-red-600 text-xl py-1 rounded-full mb-3">
+              <span className="inline-block bg-red-100 text-red-600 text-lg font-semibold py-1 rounded-sm mb-3">
                 {company.sector}
               </span>
               <p className="text-gray-600 text-xl leading-relaxed">
