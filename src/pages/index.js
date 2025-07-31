@@ -33,11 +33,13 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img
-              src="/images/ecana-logo.png"
-              alt="Ecana Group Logo"
-              className="h-16 w-auto"
-            />
+            <a href="#home">
+              <img
+                src="/images/ecana-logo.png"
+                alt="Ecana Group Logo"
+                className="h-16 w-auto"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -108,7 +110,7 @@ const VideoHeroBackground = () => {
   const [showPlayButton, setShowPlayButton] = useState(true);
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden" id="home">
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full">
         <video
