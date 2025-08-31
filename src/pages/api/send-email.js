@@ -38,7 +38,7 @@ const handler = async (req, res) => {
     try {
       const { data, error } = await resend.emails.send({
         from: 'Ecana Group Info <info@ecanagroup.com>', // Update to your verified domain
-        to: ['ecana@ecanagroup.com', email], // Your company's email
+        to: ['info@ecanagroup.com', email], // Your company's email
         subject: subject || 'Contact Form Submission',
         react: EmailTemplate({ firstName, lastName, email, subject, message }),
         replyTo: email, // Allow replies to go to the user's email
