@@ -1,5 +1,5 @@
 // pages/index.js
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 // Header Component
@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a href="#home">
               <img
-                src="/images/ecana-logo.png"
+                src="/images/ecana-logo.jpg"
                 alt="Ecana Group Logo"
                 className="h-16 w-auto"
               />
@@ -107,8 +107,6 @@ const Header = () => {
 // Video Hero Background Component
 const VideoHeroBackground = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [showPlayButton, setShowPlayButton] = useState(true);
-
   return (
     <section className="relative h-screen overflow-hidden" id="home">
       {/* Background Video */}
@@ -173,7 +171,14 @@ const VideoHeroBackground = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 text-white animate-bounce">
-        <div className="flex flex-col items-center">
+        <div
+          className="flex flex-col items-center cursor-pointer"
+          onClick={() =>
+            document
+              .getElementById('about')
+              .scrollIntoView({ behavior: 'smooth' })
+          }
+        >
           <span className="text-sm mb-2">Scroll Down</span>
           <svg
             className="w-6 h-6"
@@ -255,21 +260,21 @@ const PortfolioSection = () => {
       sector: 'Cement Distribution',
       description:
         'Partnering with Dangote, BUA, and Mangal to supply high-quality cement across West Africa.',
-      logo: '/images/ecana-logo.png',
+      logo: '/images/ecana-logo.jpg',
     },
     {
       name: 'Ecana Energy',
       sector: 'Oil & Gas',
       description:
         "Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa's growth.",
-      logo: '/images/ecana-logo.png',
+      logo: '/images/ecana-logo.jpg',
     },
     {
       name: 'Ecana Heritage',
       sector: 'Real Estate & Building Materials',
       description:
         'Delivering landmark residential and commercial projects, backed by premium materials distribution.',
-      logo: '/images/ecana-logo.png',
+      logo: '/images/ecana-logo.jpg',
     },
   ];
 
@@ -328,7 +333,7 @@ const CEOSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="relative">
             <img
-              src="/images/ecana-logo.png"
+              src="/images/ceo.jpg"
               alt="Christian Anayo Ezeh - CEO"
               className="rounded-lg shadow-xl w-full"
             />
@@ -502,21 +507,21 @@ const NewsSection = () => {
       date: 'March 10, 2025',
       excerpt:
         'A landmark partnership to expand downstream capacity and fuel regional growth.',
-      image: '/images/ecana-logo.png',
+      image: '/images/ecana-logo.jpg',
     },
     {
       title: 'Ecana Family Hits 10-Year Milestone',
       date: 'January 5, 2025',
       excerpt:
         'Celebrating a decade of reliable cement distribution across Nigeria and beyond.',
-      image: '/images/ecana-logo.png',
+      image: '/images/ecana-logo.jpg',
     },
     {
       title: 'Ecana Heritage Launches Signature Abuja Development',
       date: 'December 20, 2024',
       excerpt:
         'A mixed-use community redefining luxury and sustainability in the capital.',
-      image: '/images/ecana-logo.png',
+      image: '/images/ecana-logo.jpg',
     },
   ];
 
@@ -574,6 +579,109 @@ const NewsSection = () => {
 
 // Contact Section Component
 const ContactSection = () => {
+  // State for form inputs
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  // State for validation errors
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error for the field being edited
+    setErrors({ ...errors, [name]: '' });
+  };
+
+  // Validate form inputs
+  const validate = () => {
+    const newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First Name is required';
+    } else if (formData.firstName.length > 50) {
+      newErrors.firstName = 'First Name must be 50 characters or less';
+    }
+
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last Name is required';
+    } else if (formData.lastName.length > 50) {
+      newErrors.lastName = 'Last Name must be 50 characters or less';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.subject) {
+      newErrors.subject = 'Subject is required';
+    } else if (formData.subject.length > 100) {
+      newErrors.subject = 'Subject must be less than 100 characters';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.length > 1000) {
+      newErrors.message = 'Message must be 1000 characters or less';
+    }
+
+    return newErrors;
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        const errorData = await response.json();
+        setSubmitStatus(
+          `Error: ${errorData.message || 'Failed to send email'}`
+        );
+      }
+    } catch (error) {
+      setSubmitStatus('Error: Network issue, please try again');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 lg:px-8">
@@ -624,7 +732,7 @@ const ContactSection = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a message
             </h3>
-            <form className="space-y-6">
+            <form className="space-y-6 text-black" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -632,8 +740,18 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent ${
+                      errors.firstName ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {errors.firstName && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors.firstName}
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -641,8 +759,18 @@ const ContactSection = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent ${
+                      errors.lastName ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {errors.lastName && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {errors.lastName}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -652,8 +780,16 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent ${
+                    errors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -662,8 +798,16 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent ${
+                    errors.subject ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                {errors.subject && (
+                  <p className="mt-1 text-sm text-red-500">{errors.subject}</p>
+                )}
               </div>
 
               <div>
@@ -672,15 +816,40 @@ const ContactSection = () => {
                 </label>
                 <textarea
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent resize-none"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent resize-none ${
+                    errors.message ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 ></textarea>
+                {errors.message && (
+                  <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                )}
               </div>
+
+              {submitStatus && (
+                <p
+                  className={`text-sm ${
+                    submitStatus.includes('Error')
+                      ? 'text-red-500'
+                      : 'text-green-500'
+                  }`}
+                >
+                  {submitStatus}
+                </p>
+              )}
 
               <button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300"
+                disabled={isSubmitting}
+                className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-300 ${
+                  isSubmitting
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-red-600 hover:bg-red-700 text-white'
+                }`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
@@ -724,7 +893,7 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="lg:col-span-1">
             <img
-              src="/images/ecana-logo.png"
+              src="/images/ecana-logo.jpg"
               alt="Ecana Group"
               className="h-12 mb-6"
             />
