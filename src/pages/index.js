@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a href="#home">
               <img
-                src="/images/ecana-logo.jpg"
+                src="/images/ecana-logo.png"
                 alt="Ecana Group Logo"
                 className="h-16 w-auto"
               />
@@ -260,21 +260,21 @@ const PortfolioSection = () => {
       sector: 'Cement Distribution',
       description:
         'Partnering with Dangote, BUA, and Mangal to supply high-quality cement across West Africa.',
-      logo: '/images/ecana-logo.jpg',
+      logo: '/images/ecana-logo.png',
     },
     {
       name: 'Ecana Energy',
       sector: 'Oil & Gas',
       description:
         "Collaborating with Dangote Refinery on downstream and midstream projects to fuel Africa's growth.",
-      logo: '/images/ecana-logo.jpg',
+      logo: '/images/ecana-logo.png',
     },
     {
       name: 'Ecana Heritage',
       sector: 'Real Estate & Building Materials',
       description:
         'Delivering landmark residential and commercial projects, backed by premium materials distribution.',
-      logo: '/images/ecana-logo.jpg',
+      logo: '/images/ecana-logo.png',
     },
   ];
 
@@ -507,21 +507,21 @@ const NewsSection = () => {
       date: 'March 10, 2025',
       excerpt:
         'A landmark partnership to expand downstream capacity and fuel regional growth.',
-      image: '/images/ecana-logo.jpg',
+      image: '/images/ecana-logo.png',
     },
     {
       title: 'Ecana Family Hits 10-Year Milestone',
       date: 'January 5, 2025',
       excerpt:
         'Celebrating a decade of reliable cement distribution across Nigeria and beyond.',
-      image: '/images/ecana-logo.jpg',
+      image: '/images/ecana-logo.png',
     },
     {
       title: 'Ecana Heritage Launches Signature Abuja Development',
       date: 'December 20, 2024',
       excerpt:
         'A mixed-use community redefining luxury and sustainability in the capital.',
-      image: '/images/ecana-logo.jpg',
+      image: '/images/ecana-logo.png',
     },
   ];
 
@@ -893,7 +893,7 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="lg:col-span-1">
             <img
-              src="/images/ecana-logo.jpg"
+              src="/images/ecana-logo.png"
               alt="Ecana Group"
               className="h-12 mb-6"
             />
