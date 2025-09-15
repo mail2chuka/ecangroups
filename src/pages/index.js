@@ -1,6 +1,8 @@
 // pages/index.js
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Header Component
 const Header = () => {
@@ -33,13 +35,17 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#home">
-              <img
+            <Link href="#home">
+              {' '}
+              <Image
                 src="/images/ecana-logo.png"
                 alt="Ecana Group Logo"
+                width={120}
+                height={64}
                 className="h-16 w-auto"
+                priority
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -124,10 +130,13 @@ const VideoHeroBackground = () => {
           <source src="/videos/video1.mp4" type="video/mp4" />
 
           {/* Fallback for browsers that don't support video */}
-          <img
+          <Image
             src="/images/placeholder/large/img.png"
             alt="Ecana Group Hero Background"
+            layout="fill"
+            objectFit="cover"
             className="w-full h-full object-cover"
+            priority
           />
         </video>
       </div>
@@ -239,10 +248,14 @@ const AboutSection = () => {
             </button>
           </div>
           <div className="relative">
-            <img
+            <Image
               src="/images/image.jpg"
               alt="About Ecana Group"
+              width={600}
+              height={400}
               className="rounded-lg shadow-xl w-full"
+              style={{ width: '100%', height: 'auto' }}
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
           </div>
@@ -297,10 +310,14 @@ const PortfolioSection = () => {
               key={index}
               className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-xl transition-shadow duration-300 group"
             >
-              <img
+              <Image
                 src={company.logo}
                 alt={company.name}
+                width={64}
+                height={64}
                 className="h-16 mb-4 object-contain"
+                style={{ height: '4rem', width: 'auto' }}
+                priority
               />
               <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
                 {company.name}
@@ -332,10 +349,14 @@ const CEOSection = () => {
         {' '}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="relative">
-            <img
+            <Image
               src="/images/ceo.jpg"
               alt="Christian Anayo Ezeh - CEO"
+              width={600}
+              height={400}
               className="rounded-lg shadow-xl w-full"
+              style={{ width: '100%', height: 'auto' }}
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-transparent opacity-20 rounded-lg"></div>
           </div>
@@ -472,10 +493,14 @@ const VideoSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
-            <img
+            <Image
               src="/images/placeholder/large/img.png"
               alt="Video Thumbnail"
+              width={1280}
+              height={720}
               className="w-full aspect-video object-cover"
+              style={{ width: '100%', height: 'auto' }}
+              priority
             />
             {!isPlaying && (
               <div className="absolute inset-0 flex items-center justify-center">
@@ -544,10 +569,14 @@ const NewsSection = () => {
               key={index}
               className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
             >
-              <img
+              <Image
                 src={article.image}
                 alt={article.title}
+                width={320}
+                height={192}
                 className="px-10 h-48 object-contain group-hover:scale-105 transition-transform duration-300"
+                style={{ height: '12rem', width: 'auto' }}
+                priority
               />
               <div className="p-6">
                 <time className="text-lg text-red-600 font-medium">
@@ -892,10 +921,13 @@ const Footer = () => {
         <div className="grid lg:grid-cols-5 gap-8">
           {/* Logo and description */}
           <div className="lg:col-span-1">
-            <img
+            <Image
               src="/images/ecana-logo.png"
               alt="Ecana Group"
+              width={120}
+              height={48}
               className="h-12 mb-6"
+              priority
             />
             <p className="text-gray-300 leading-relaxed">
               Ecana Group—headquartered in Abuja with a global outlook—builds
@@ -968,7 +1000,7 @@ export default function Home() {
           content="Ecana Group is committed to improving lives and transforming Africa through strategic investments in critical sectors."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <main className="font-sans">
