@@ -961,7 +961,7 @@ export default function Home() {
     <>
       <Head>
         <title>
-          Ecana Group|Leading Family owned African Investment Company
+          Ecana Group|Leading Investment Company
         </title>
         <meta
           name="description"
