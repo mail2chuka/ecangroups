@@ -967,6 +967,7 @@ export default function Home() {
           name="description"
           content="Ecana Group is committed to improving lives and transforming Africa through strategic investments in critical sectors."
         />
+            <meta name="google-site-verification" content="Hni3HGHdFAyf00X0rgsW-cmuT_0MyNWuAfOw7bGy5Dw" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
